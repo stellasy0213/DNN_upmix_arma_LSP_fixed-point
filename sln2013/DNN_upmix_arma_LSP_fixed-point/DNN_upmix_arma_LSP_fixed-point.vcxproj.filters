@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="kiss_fft">
+      <UniqueIdentifier>{5bfb54c1-4269-40e7-b0b5-906eb2ca685b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="G.729_LPC">
+      <UniqueIdentifier>{0ed2a352-ee59-41b3-951c-2e4ec1231cb1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\tab_ld8k.h">
+      <Filter>G.729_LPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\typedef.h">
+      <Filter>G.729_LPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ld8k.h">
+      <Filter>G.729_LPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\kiss_fft.h">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\kiss_fftnd.h">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\kiss_fftndr.h">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\kiss_fftr.h">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\kissfft.hh">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\unix_comp.h">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\_kiss_fft_guts.h">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\kiss_fft\kfc.h">
+      <Filter>kiss_fft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ld8cp.h">
+      <Filter>G.729_LPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\tabld8cp.h">
+      <Filter>G.729_LPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\basic_op.h">
+      <Filter>G.729_LPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\oper_32b.h">
+      <Filter>G.729_LPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nnet_upmix_constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nnet_upmix_fixed_point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nnet_upmix_interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nnet_upmix_table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nnet_upmix_typedef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nnet_upmix_all.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nnet_upmix_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\kiss_fft\kiss_fftnd.c">
+      <Filter>kiss_fft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\kiss_fft\kiss_fftndr.c">
+      <Filter>kiss_fft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\kiss_fft\kiss_fftr.c">
+      <Filter>kiss_fft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\kiss_fft\kfc.c">
+      <Filter>kiss_fft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\kiss_fft\kiss_fastfir.c">
+      <Filter>kiss_fft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\kiss_fft\kiss_fft.c">
+      <Filter>kiss_fft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lpcfunc.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\tab_ld8k.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lpccp.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_op.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\oper_32b.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\tabld8cp.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\qua_lspe.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lspgetqe.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utilcp.cpp">
+      <Filter>G.729_LPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\nnet_upmix_api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\nnet_upmix_feedforward.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\nnet_upmix_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\nnet_upmix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\nnet_upmix_feedforward_fixed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

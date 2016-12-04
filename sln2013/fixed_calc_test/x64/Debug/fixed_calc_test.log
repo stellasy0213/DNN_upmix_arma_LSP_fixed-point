@@ -1,0 +1,29 @@
+﻿Build started 2016-11-29 오후 4:26:21.
+     1>Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\fixed_calc_test.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\libfixmath" /I"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\libfixmath\unittests" /Zi /nologo /W3 /WX- /sdl /Od /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TC /errorReport:prompt ..\..\libfixmath\fix16.c ..\..\libfixmath\fix16_exp.c ..\..\libfixmath\fix16_sqrt.c ..\..\libfixmath\fix16_str.c ..\..\libfixmath\fix16_trig.c ..\..\libfixmath\fract32.c ..\..\libfixmath\uint32.c ..\..\libfixmath\unittests\fix16_exp_unittests.c
+         fix16_exp_unittests.c
+         uint32.c
+         fract32.c
+         fix16_trig.c
+         fix16_str.c
+         fix16_sqrt.c
+         fix16_exp.c
+         fix16.c
+     1>..\..\libfixmath\fix16.c(100): warning C4244: 'initializing' : conversion from 'int64_t' to 'fix16_t', possible loss of data
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\x64\Debug\fixed_calc_test.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\x64\Debug\fixed_calc_test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\x64\Debug\fixed_calc_test.lib" /MACHINE:X64 x64\Debug\fix16.obj
+         x64\Debug\fix16_exp.obj
+         x64\Debug\fix16_sqrt.obj
+         x64\Debug\fix16_str.obj
+         x64\Debug\fix16_trig.obj
+         x64\Debug\fract32.obj
+         x64\Debug\uint32.obj
+         x64\Debug\fix16_exp_unittests.obj
+         fixed_calc_test.vcxproj -> I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\x64\Debug\fixed_calc_test.exe
+     1>Done Building Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\fixed_calc_test.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.38

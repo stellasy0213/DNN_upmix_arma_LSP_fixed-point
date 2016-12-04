@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -86,13 +86,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_LIB;_CONSOLE;_CRT_SECURE_NO_WARNINGS;ARMA_USE_LAPACK;ARMA_USE_BLAS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\include;..\kiss_fft;..\arma_include;..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libfixmath;..\..\include;..\..\kiss_fft;..\..\arma_include;..\..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\arma_lib_win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>lapack_win64_MT.lib;blas_win64_MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cbia.lib.lapack.dyn.dbg.x86.12.lib;cbia.lib.blas.dyn.dbg.x86.12.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -103,7 +103,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_LIB;_CONSOLE;_CRT_SECURE_NO_WARNINGS;ARMA_USE_LAPACK;ARMA_USE_BLAS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\include;..\..\kiss_fft;..\..\arma_include;..\..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libfixmath;..\..\include;..\..\kiss_fft;..\..\arma_include;..\..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,7 +122,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CONSOLE;_CRT_SECURE_NO_WARNINGS;ARMA_USE_LAPACK;ARMA_USE_BLAS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\include;..\kiss_fft;..\arma_include;..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libfixmath;..\..\include;..\..\kiss_fft;..\..\arma_include;..\..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +141,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CONSOLE;_CRT_SECURE_NO_WARNINGS;ARMA_USE_LAPACK;ARMA_USE_BLAS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\include;..\..\kiss_fft;..\..\arma_include;..\..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libfixmath;..\..\include;..\..\kiss_fft;..\..\arma_include;..\..\arma_lib_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -174,6 +174,13 @@
     <ClInclude Include="..\..\kiss_fft\kiss_fftr.h" />
     <ClInclude Include="..\..\kiss_fft\unix_comp.h" />
     <ClInclude Include="..\..\kiss_fft\_kiss_fft_guts.h" />
+    <ClInclude Include="..\..\libfixmath\fix16.h" />
+    <ClInclude Include="..\..\libfixmath\fix16.hpp" />
+    <ClInclude Include="..\..\libfixmath\fix16_trig_sin_lut.h" />
+    <ClInclude Include="..\..\libfixmath\fixmath.h" />
+    <ClInclude Include="..\..\libfixmath\fract32.h" />
+    <ClInclude Include="..\..\libfixmath\int64.h" />
+    <ClInclude Include="..\..\libfixmath\uint32.h" />
     <ClInclude Include="..\..\src\oper_32b.h" />
   </ItemGroup>
   <ItemGroup>
@@ -183,13 +190,19 @@
     <ClCompile Include="..\..\kiss_fft\kiss_fftnd.c" />
     <ClCompile Include="..\..\kiss_fft\kiss_fftndr.c" />
     <ClCompile Include="..\..\kiss_fft\kiss_fftr.c" />
+    <ClCompile Include="..\..\libfixmath\fix16.c" />
+    <ClCompile Include="..\..\libfixmath\fix16_exp.c" />
+    <ClCompile Include="..\..\libfixmath\fix16_sqrt.c" />
+    <ClCompile Include="..\..\libfixmath\fix16_str.c" />
+    <ClCompile Include="..\..\libfixmath\fix16_trig.c" />
+    <ClCompile Include="..\..\libfixmath\fract32.c" />
+    <ClCompile Include="..\..\libfixmath\uint32.c" />
     <ClCompile Include="..\..\src\basic_op.cpp" />
     <ClCompile Include="..\..\src\lpccp.cpp" />
     <ClCompile Include="..\..\src\lpcfunc.cpp" />
     <ClCompile Include="..\..\src\lspgetqe.cpp" />
     <ClCompile Include="..\..\src\nnet_upmix.cpp" />
     <ClCompile Include="..\..\src\nnet_upmix_api.cpp" />
-    <ClCompile Include="..\..\src\nnet_upmix_feedforward.cpp" />
     <ClCompile Include="..\..\src\nnet_upmix_feedforward_fixed.cpp" />
     <ClCompile Include="..\..\src\nnet_upmix_test.cpp" />
     <ClCompile Include="..\..\src\oper_32b.cpp" />

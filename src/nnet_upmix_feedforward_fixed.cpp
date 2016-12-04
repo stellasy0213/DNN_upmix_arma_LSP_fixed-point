@@ -20,30 +20,37 @@
 #include "nnet_upmix_api.h"
 #include "nnet_upmix_constants.h"
 
+static int clz(int x);
+static int fp_reci(int val);
+static int fp_div(int numerator, int divisor);
+static int fp_ln(int val);
+static int fp_exp(int val);
+static int fp_pow(int ebase, int exponent);
+static unsigned fp_sqrt(unsigned val);
+
+
 //extern Nnet NNET_UPMIX_nnet_transf;
 //extern CuMatrix<BaseFloat> feats, feats_transf, nnet_out;
 //extern Matrix<BaseFloat> nnet_feat_in; //nnet_feat_input buffer
 //extern Matrix<BaseFloat> nnet_feat_out; //nnet_feat_output buffer
 
 
-extern fmat addshift;
-extern fmat rescale;
+extern imat addshift_i;
+extern imat rescale_i;
 
-extern fmat W_0;
-extern fmat W_1;
-extern fmat W_2;
-extern fmat W_3;
-extern fmat W_4;
-extern fmat W_5;
+extern imat I_W_0;
+extern imat I_W_1;
+extern imat I_W_2;
+extern imat I_W_3;
+extern imat I_W_4;
+extern imat I_W_5;
 
-extern fmat B_0;
-extern fmat B_1;
-extern fmat B_2;
-extern fmat B_3;
-extern fmat B_4;
-extern fmat B_5;
-
-
+extern imat I_B_0;
+extern imat I_B_1;
+extern imat I_B_2;
+extern imat I_B_3;
+extern imat I_B_4;
+extern imat I_B_5;
 
 
 
@@ -57,9 +64,8 @@ void nnet_upmix_feedforward_fixed(int * f_Feat, int * f_Feat_dec)
 
     // [Comment]: frame-wise read
 	int k, i, l;
-
-	fmat Q_0;
-
+	int a;
+	
 
 	/*
 	//Feature Trasnform [Splice, Addshift, Rescale]
@@ -89,80 +95,146 @@ void nnet_upmix_feedforward_fixed(int * f_Feat, int * f_Feat_dec)
 	  imat a_A(f_Feat, 1, FEAT_ORDER, false, false);
 
 	   //Addshift
-	  imat addshift_i = conv_to<imat>::from(addshift * 8192.0);
 	  a_A = a_A + addshift_i;
 	   //Rescale
-	  imat rescale_i = conv_to<imat>::from(rescale * 128.0); //Q7
 	  a_A = a_A % rescale_i;
 
 	   //Affine-Transform & sigmoid
 	  imat a_C_in;
 	  imat a_C_out;
+	  
 	  imat a_C_final(f_Feat_dec, FEAT_ORDER, 1, false, false);
 
 	  //fmat a_C_out_f = conv_to<fmat>::from(a_C_out / 32768.0);
-	  fmat a_C_out_f;
+	  //fmat a_C_out_f;
 
-	  imat I_W_0 = conv_to<imat>::from(W_0 * 256.0); //Q8
-	  imat I_W_1 = conv_to<imat>::from(W_1 * 256.0);
-	  imat I_W_2 = conv_to<imat>::from(W_2 * 256.0);
-	  imat I_W_3 = conv_to<imat>::from(W_3 * 256.0);
-	  imat I_W_4 = conv_to<imat>::from(W_4 * 256.0);
-	  imat I_W_5 = conv_to<imat>::from(W_5 * 256.0);
 
-	  imat I_B_0 = conv_to<imat>::from(B_0 * 268435456.0); //Q28
-	  imat I_B_1 = conv_to<imat>::from(B_1 * 268435456.0);
-	  imat I_B_2 = conv_to<imat>::from(B_2 * 268435456.0);
-	  imat I_B_3 = conv_to<imat>::from(B_3 * 268435456.0);
-	  imat I_B_4 = conv_to<imat>::from(B_4 * 268435456.0);
-	  imat I_B_5 = conv_to<imat>::from(B_5 * 268435456.0);
+
+	  int a_tmp;
+	  int a_C_out_int;
 
 	  for (l = 0; l < HIDDEN_LAYER + 1; l++)
 	  {
 		  if (l == 0)
 		  {
+			  /* // Float
 			  a_C_in = a_A;
 			  a_C_out = (a_C_in*I_W_0) + I_B_0; //Affine Transform: C = AX + B
 			  a_C_out_f = conv_to<fmat>::from(a_C_out);
 			  a_C_out_f = a_C_out_f / 268435456.0;  //Q28 -> Q0
 			  a_C_out_f = 1 / (1 + exp(-1 * a_C_out_f));// Sigmoid: y = 1/(1+e^-x)
 			  a_C_out = conv_to<imat>::from(a_C_out_f * 1048576.0);  //Q28 -> Q20
+			  */
+
+			  // Fixed
+			  a_C_in = a_A;
+			  a_C_out = (a_C_in*I_W_0) + I_B_0; //Affine Transform: C = AX + B
+			  for (a = 0; a < a_C_out.n_cols; a++){
+				  a_tmp = -1 * (a_C_out(0, a) >> 12); //Q4.28 -> Q16.16
+				  a_tmp = 2147483648 / (65536 + (fix16_exp(a_tmp))); //Q31 / Q 16
+				  a_C_out(0, a) = a_tmp << 5; //Q17.15 -> Q12.20
+			  }
+
+			  //----Fixed / Float Comparison codes
+			  /*
+			  imat a_C_out1;
+			imat a_C_out2;
+			  a_C_out1 = a_C_out;
+
+			  a_C_in = a_A;
+			  a_C_out = (a_C_in*I_W_0) + I_B_0; //Affine Transform: C = AX + B
+			  a_C_out_f = conv_to<fmat>::from(a_C_out);
+			  a_C_out_f = a_C_out_f / 268435456.0;  //Q28 -> Q0
+			  a_C_out_f = 1 / (1 + exp(-1 * a_C_out_f));// Sigmoid: y = 1/(1+e^-x)
+			  a_C_out2 = conv_to<imat>::from(a_C_out_f * 1048576.0);  //Q28 -> Q20
+
+			  a_C_out2 = a_C_out1 - a_C_out2;
+			  a_C_out2.print();
+			  */
 		  }
-		  else if(l == 1)
+		  else if (l == 1)
 		  {
+			  /*
 			  a_C_in = a_C_out;
 			  a_C_out = (a_C_in*I_W_1) + I_B_1; //Affine Transform: C = AX + B
 			  a_C_out_f = conv_to<fmat>::from(a_C_out);
 			  a_C_out_f = a_C_out_f / 268435456.0;
 			  a_C_out_f = 1 / (1 + exp(-1 * a_C_out_f));// Sigmoid: y = 1/(1+e^-x)
 			  a_C_out = conv_to<imat>::from(a_C_out_f * 1048576.0);
+			  */
+			  
+			  a_C_in = a_C_out;
+			  a_C_out = (a_C_in*I_W_1) + I_B_1; //Affine Transform: C = AX + B
+			  for (a = 0; a < a_C_out.n_cols; a++){
+				  a_tmp = -1 * (a_C_out(0, a) >> 12); //Q4.28 -> Q16.16
+				  a_tmp = 2147483648 / (65536 + (fix16_exp(a_tmp))); //Q31 / Q 16
+				  a_C_out(0, a) = a_tmp << 5; //Q4.15 -> Q12.20
+			  }
+			  
+			  
 		  }
+			  
 		  else if (l == 2)
 		  {
+			  /*
 			  a_C_in = a_C_out;
 			  a_C_out = (a_C_in*I_W_2) + I_B_2; //Affine Transform: C = AX + B
 			  a_C_out_f = conv_to<fmat>::from(a_C_out);
 			  a_C_out_f = a_C_out_f / 268435456.0;
 			  a_C_out_f = 1 / (1 + exp(-1 * a_C_out_f));// Sigmoid: y = 1/(1+e^-x)
 			  a_C_out = conv_to<imat>::from(a_C_out_f * 1048576.0);
+			  */
+			  
+			  a_C_in = a_C_out;
+			  a_C_out = (a_C_in*I_W_2) + I_B_2; //Affine Transform: C = AX + B
+			  for (a = 0; a < a_C_out.n_cols; a++){
+				  a_tmp = -1 * (a_C_out(0, a) >> 12); //Q4.28 -> Q16.16
+				  a_tmp = 2147483648 / (65536 + (fix16_exp(a_tmp))); //Q31 / Q 16
+				  a_C_out(0, a) = a_tmp << 5; //Q4.15 -> Q12.20
+			  }
+			  
+			  
 		  }
 		  else if (l == 3)
 		  {
+			  /*
 			  a_C_in = a_C_out;
 			  a_C_out = (a_C_in*I_W_3) + I_B_3; //Affine Transform: C = AX + B
 			  a_C_out_f = conv_to<fmat>::from(a_C_out);
 			  a_C_out_f = a_C_out_f / 268435456.0;
 			  a_C_out_f = 1 / (1 + exp(-1 * a_C_out_f));// Sigmoid: y = 1/(1+e^-x)
 			  a_C_out = conv_to<imat>::from(a_C_out_f * 1048576.0);
+			  */
+			  
+			  a_C_in = a_C_out;
+			  a_C_out = (a_C_in*I_W_3) + I_B_3; //Affine Transform: C = AX + B
+			  for (a = 0; a < a_C_out.n_cols; a++){
+				  a_tmp = -1 * (a_C_out(0, a) >> 12); //Q4.28 -> Q16.16
+				  a_tmp = 2147483648 / (65536 + (fix16_exp(a_tmp))); //Q31 / Q 16
+				  a_C_out(0, a) = a_tmp << 5; //Q4.15 -> Q12.20
+			  }
+			  
+			  
 		  }
 		  else if (l == 4)
 		  {
+			  /*
 			  a_C_in = a_C_out;
 			  a_C_final = (a_C_in*I_W_4) + I_B_4; //Affine Transform: C = AX + B
 			  a_C_out_f = conv_to<fmat>::from(a_C_final);
 			  a_C_out_f = a_C_out_f / 268435456.0;
 			  a_C_out_f = 1 / (1 + exp(-1 * a_C_out_f));// Sigmoid: y = 1/(1+e^-x)
 			  a_C_final = conv_to<imat>::from(a_C_out_f * 8192.0);
+			  */
+			  
+			  a_C_in = a_C_out;
+			  a_C_final = (a_C_in*I_W_4) + I_B_4; //Affine Transform: C = AX + B
+			  for (a = 0; a < a_C_final.n_cols; a++){
+				  a_tmp = -1 * (a_C_final(0, a) >> 12); //Q4.28 -> Q16.16
+				  a_tmp = 2147483648 / (65536 + (fix16_exp(a_tmp))); //Q31 / Q 16
+				  a_C_final(0, a) = a_tmp >> 2; //Q4.15 -> Q13
+			  }
+			  
 		  }
 		  //else if (l == 5)
 		  //{

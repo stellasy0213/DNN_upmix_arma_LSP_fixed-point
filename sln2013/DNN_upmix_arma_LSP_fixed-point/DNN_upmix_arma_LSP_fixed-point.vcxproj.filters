@@ -19,6 +19,9 @@
     <Filter Include="G.729_LPC">
       <UniqueIdentifier>{0ed2a352-ee59-41b3-951c-2e4ec1231cb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="libfixmath">
+      <UniqueIdentifier>{cde7ac99-4efe-4a18-826a-752d45e234c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\tab_ld8k.h">
@@ -87,6 +90,27 @@
     <ClInclude Include="..\..\include\nnet_upmix_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\libfixmath\fix16.h">
+      <Filter>libfixmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libfixmath\fix16.hpp">
+      <Filter>libfixmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libfixmath\fix16_trig_sin_lut.h">
+      <Filter>libfixmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libfixmath\fixmath.h">
+      <Filter>libfixmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libfixmath\fract32.h">
+      <Filter>libfixmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libfixmath\int64.h">
+      <Filter>libfixmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libfixmath\uint32.h">
+      <Filter>libfixmath</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\kiss_fft\kiss_fftnd.c">
@@ -137,9 +161,6 @@
     <ClCompile Include="..\..\src\nnet_upmix_api.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\nnet_upmix_feedforward.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\nnet_upmix_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -148,6 +169,27 @@
     </ClCompile>
     <ClCompile Include="..\..\src\nnet_upmix_feedforward_fixed.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libfixmath\fract32.c">
+      <Filter>libfixmath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libfixmath\uint32.c">
+      <Filter>libfixmath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libfixmath\fix16.c">
+      <Filter>libfixmath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libfixmath\fix16_exp.c">
+      <Filter>libfixmath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libfixmath\fix16_sqrt.c">
+      <Filter>libfixmath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libfixmath\fix16_str.c">
+      <Filter>libfixmath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libfixmath\fix16_trig.c">
+      <Filter>libfixmath</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

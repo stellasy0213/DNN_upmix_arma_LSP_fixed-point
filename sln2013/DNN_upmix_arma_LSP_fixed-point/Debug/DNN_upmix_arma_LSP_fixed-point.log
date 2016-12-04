@@ -1,0 +1,38 @@
+﻿Build started 2016-11-28 오후 10:17:05.
+     1>Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\DNN_upmix_arma_LSP_fixed-point.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\include /I..\kiss_fft /I..\arma_include /I..\arma_lib_win64 /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\basic_op.cpp ..\..\src\lpccp.cpp ..\..\src\lpcfunc.cpp ..\..\src\lspgetqe.cpp ..\..\src\nnet_upmix.cpp ..\..\src\nnet_upmix_api.cpp ..\..\src\nnet_upmix_feedforward.cpp ..\..\src\nnet_upmix_feedforward_fixed.cpp ..\..\src\nnet_upmix_test.cpp ..\..\src\oper_32b.cpp ..\..\src\qua_lspe.cpp ..\..\src\tab_ld8k.cpp ..\..\src\tabld8cp.cpp ..\..\src\utilcp.cpp
+         utilcp.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\utilcp.cpp(19): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         tabld8cp.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\tabld8cp.cpp(17): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         tab_ld8k.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\tab_ld8k.cpp(3): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         qua_lspe.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\qua_lspe.cpp(19): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         oper_32b.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\oper_32b.cpp(3): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         nnet_upmix_test.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\nnet_upmix_test.cpp(27): fatal error C1083: Cannot open include file: 'nnet_upmix_api.h': No such file or directory
+         nnet_upmix_feedforward_fixed.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\nnet_upmix_feedforward_fixed.cpp(20): fatal error C1083: Cannot open include file: 'nnet_upmix_api.h': No such file or directory
+         nnet_upmix_feedforward.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\nnet_upmix_feedforward.cpp(20): fatal error C1083: Cannot open include file: 'nnet_upmix_api.h': No such file or directory
+         nnet_upmix_api.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\nnet_upmix_api.cpp(26): fatal error C1083: Cannot open include file: 'nnet_upmix_api.h': No such file or directory
+         nnet_upmix.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\nnet_upmix.cpp(29): fatal error C1083: Cannot open include file: 'nnet_upmix_api.h': No such file or directory
+         lspgetqe.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\lspgetqe.cpp(14): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         lpcfunc.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\lpcfunc.cpp(10): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         lpccp.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\lpccp.cpp(16): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         basic_op.cpp
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\src\basic_op.cpp(17): fatal error C1083: Cannot open include file: 'typedef.h': No such file or directory
+         Generating Code...
+     1>Done Building Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\DNN_upmix_arma_LSP_fixed-point.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.85

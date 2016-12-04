@@ -50,24 +50,12 @@ double init_scale = 0.0;
 //Nnet NNET_UPMIX_nnet_transf; //[Comment]: Nnet을 초기에 1회만 load 하도록 전역변수화 (기존에는 Decode 전에 불러와서 framw-wise에 적용 시 계산량 소모가 컸음)
 //Nnet NNET_UPMIX_nnet;
 
-fmat addshift;
-fmat rescale;
 
-fmat W_0;
-fmat W_1;
-fmat W_2;
-fmat W_3;
-fmat W_4;
-fmat W_5;
 
-fmat B_0;
-fmat B_1;
-fmat B_2;
-fmat B_3;
-fmat B_4;
-fmat B_5;
+//Model mem declaration
+imat addshift_i;
+imat rescale_i;
 
-/*
 imat I_W_0;
 imat I_W_1;
 imat I_W_2;
@@ -81,7 +69,7 @@ imat I_B_2;
 imat I_B_3;
 imat I_B_4;
 imat I_B_5;
-*/
+
 
 //CuMatrix<BaseFloat> feats;
 //CuMatrix<BaseFloat> feats_transf;
@@ -138,8 +126,28 @@ void NNET_UPMIX_Init(int * sRAMNMF)
 
 	
 #if NNET_FEEDFORWARD_ARMA == 1
-	addshift.load("nnet_arma/arma_nnet_addshift", arma_ascii);
-	rescale.load("nnet_arma/arma_nnet_rescale", arma_ascii);
+
+
+	fmat addshift;
+	fmat rescale;
+
+	fmat W_0;
+	fmat W_1;
+	fmat W_2;
+	fmat W_3;
+	fmat W_4;
+	fmat W_5;
+
+	fmat B_0;
+	fmat B_1;
+	fmat B_2;
+	fmat B_3;
+	fmat B_4;
+	fmat B_5;
+
+
+	addshift.load("nnet_arma/arma_nnet_addshift_mPI", arma_ascii);
+	rescale.load("nnet_arma/arma_nnet_rescale_dPI", arma_ascii);
 	
 	//Load Armadillo nnet files
 	W_0.load("nnet_arma/arma_nnet_W_0", arma_binary);	
@@ -155,6 +163,28 @@ void NNET_UPMIX_Init(int * sRAMNMF)
 	B_3.load("nnet_arma/arma_nnet_B_3", arma_binary);
 	B_4.load("nnet_arma/arma_nnet_B_4", arma_binary);
 	//B_5.load("nnet_arma/arma_nnet_B_5", arma_binary);
+
+
+	//Convert fmat to imat of models
+	addshift_i = conv_to<imat>::from(addshift * 8192.0);
+	rescale_i = conv_to<imat>::from(rescale * 128.0); //Q7
+
+
+	I_W_0 = conv_to<imat>::from(W_0 * 256.0); //Q8
+	I_W_1 = conv_to<imat>::from(W_1 * 256.0);
+	I_W_2 = conv_to<imat>::from(W_2 * 256.0);
+	I_W_3 = conv_to<imat>::from(W_3 * 256.0);
+	I_W_4 = conv_to<imat>::from(W_4 * 256.0);
+	I_W_5 = conv_to<imat>::from(W_5 * 256.0);
+
+	I_B_0 = conv_to<imat>::from(B_0 * 268435456.0); //Q28
+	I_B_1 = conv_to<imat>::from(B_1 * 268435456.0);
+	I_B_2 = conv_to<imat>::from(B_2 * 268435456.0);
+	I_B_3 = conv_to<imat>::from(B_3 * 268435456.0);
+	I_B_4 = conv_to<imat>::from(B_4 * 268435456.0);
+	I_B_5 = conv_to<imat>::from(B_5 * 268435456.0);
+
+
 #endif
 
 }

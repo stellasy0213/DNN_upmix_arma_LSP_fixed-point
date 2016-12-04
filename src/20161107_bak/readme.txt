@@ -1,1 +1,0 @@
-DNN decoder(feedforward) Fixed로 바꾸기 전 단계

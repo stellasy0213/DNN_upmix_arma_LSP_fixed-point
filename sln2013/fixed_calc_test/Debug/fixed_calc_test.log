@@ -1,0 +1,94 @@
+﻿Build started 2016-11-29 오후 4:07:16.
+     1>Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\fixed_calc_test.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\libfixmath" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\libfixmath\unittests\fix16_macros_unittests.c
+         fix16_macros_unittests.c
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(18): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(19): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(20): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(21): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(22): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(23): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(24): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(25): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(26): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(27): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(28): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(29): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(30): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(31): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(32): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(33): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(34): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(35): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(36): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(37): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(38): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(39): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(40): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(41): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(44): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(45): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(46): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(47): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(48): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(49): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(50): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(51): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(52): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(53): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(54): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(55): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(56): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(57): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(58): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(59): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(60): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(61): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(62): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(63): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(64): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(65): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(66): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(67): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(68): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(69): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(70): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(71): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(72): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(73): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(74): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(75): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(76): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(77): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(78): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(79): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(80): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(81): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(82): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(83): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(84): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(85): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(86): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(87): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(88): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(89): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(90): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(91): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(92): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(93): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(94): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(95): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(96): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(97): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(98): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(99): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(100): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(101): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(102): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>i:\hucom\224server\dnn_upmix_arma_lsp_fixed-point\libfixmath\unittests\fix16_macros_unittests.c(103): error C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>Done Building Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\fixed_calc_test\fixed_calc_test.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.39

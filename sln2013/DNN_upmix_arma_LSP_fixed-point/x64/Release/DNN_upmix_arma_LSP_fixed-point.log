@@ -1,7 +1,7 @@
-﻿Build started 2016-11-16 오후 3:47:46.
+﻿Build started 2016-12-04 오후 8:11:16.
      1>Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\DNN_upmix_arma_LSP_fixed-point.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\include /I..\..\kiss_fft /I..\..\arma_include /I..\..\arma_lib_win64 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TC /errorReport:prompt ..\..\kiss_fft\kfc.c ..\..\kiss_fft\kiss_fastfir.c ..\..\kiss_fft\kiss_fft.c ..\..\kiss_fft\kiss_fftnd.c ..\..\kiss_fft\kiss_fftndr.c ..\..\kiss_fft\kiss_fftr.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\libfixmath /I..\..\include /I..\..\kiss_fft /I..\..\arma_include /I..\..\arma_lib_win64 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TC /errorReport:prompt ..\..\kiss_fft\kfc.c ..\..\kiss_fft\kiss_fastfir.c ..\..\kiss_fft\kiss_fft.c ..\..\kiss_fft\kiss_fftnd.c ..\..\kiss_fft\kiss_fftndr.c ..\..\kiss_fft\kiss_fftr.c ..\..\libfixmath\fix16.c ..\..\libfixmath\fix16_exp.c ..\..\libfixmath\fix16_sqrt.c ..\..\libfixmath\fix16_str.c ..\..\libfixmath\fix16_trig.c ..\..\libfixmath\fract32.c ..\..\libfixmath\uint32.c
          kfc.c
          kiss_fastfir.c
      1>..\..\kiss_fft\kiss_fastfir.c(100): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
@@ -19,14 +19,20 @@
          kiss_fftndr.c
          kiss_fftr.c
      1>..\..\kiss_fft\kiss_fftr.c(62): warning C4244: '=' : conversion from 'double' to 'int32_t', possible loss of data
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\include /I..\..\kiss_fft /I..\..\arma_include /I..\..\arma_lib_win64 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ..\..\src\basic_op.cpp ..\..\src\lpccp.cpp ..\..\src\lpcfunc.cpp ..\..\src\lspgetqe.cpp ..\..\src\nnet_upmix.cpp ..\..\src\nnet_upmix_api.cpp ..\..\src\nnet_upmix_feedforward.cpp ..\..\src\nnet_upmix_feedforward_fixed.cpp ..\..\src\nnet_upmix_test.cpp ..\..\src\oper_32b.cpp ..\..\src\qua_lspe.cpp ..\..\src\tabld8cp.cpp ..\..\src\tab_ld8k.cpp ..\..\src\utilcp.cpp
+         fix16.c
+     1>..\..\libfixmath\fix16.c(100): warning C4244: 'initializing' : conversion from 'int64_t' to 'fix16_t', possible loss of data
+         fix16_exp.c
+         fix16_sqrt.c
+         fix16_str.c
+         fix16_trig.c
+         fract32.c
+         uint32.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\libfixmath /I..\..\include /I..\..\kiss_fft /I..\..\arma_include /I..\..\arma_lib_win64 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ..\..\src\basic_op.cpp ..\..\src\lpccp.cpp ..\..\src\lpcfunc.cpp ..\..\src\lspgetqe.cpp ..\..\src\nnet_upmix.cpp ..\..\src\nnet_upmix_api.cpp ..\..\src\nnet_upmix_feedforward_fixed.cpp ..\..\src\nnet_upmix_test.cpp ..\..\src\oper_32b.cpp ..\..\src\qua_lspe.cpp ..\..\src\tabld8cp.cpp ..\..\src\tab_ld8k.cpp ..\..\src\utilcp.cpp
          basic_op.cpp
          lpccp.cpp
          lpcfunc.cpp
          lspgetqe.cpp
          nnet_upmix.cpp
-     1>..\..\src\nnet_upmix.cpp(502): warning C4244: '=' : conversion from 'double' to 'int32_t', possible loss of data
-     1>..\..\src\nnet_upmix.cpp(505): warning C4244: '=' : conversion from 'double' to 'int32_t', possible loss of data
      1>..\..\src\nnet_upmix.cpp(221): warning C4101: 'avg_lag' : unreferenced local variable
      1>..\..\src\nnet_upmix.cpp(167): warning C4101: 'r_bwd' : unreferenced local variable
      1>..\..\src\nnet_upmix.cpp(203): warning C4101: 'res2' : unreferenced local variable
@@ -82,17 +88,20 @@
      1>..\..\src\nnet_upmix.cpp(191): warning C4101: 'i_gamma' : unreferenced local variable
      1>..\..\src\nnet_upmix.cpp(592): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          nnet_upmix_api.cpp
-     1>..\..\src\nnet_upmix_api.cpp(122): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(123): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(124): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(125): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(97): warning C4101: 'i' : unreferenced local variable
-         nnet_upmix_feedforward.cpp
-     1>..\..\src\nnet_upmix_feedforward.cpp(57): warning C4101: 'i' : unreferenced local variable
-     1>..\..\src\nnet_upmix_feedforward.cpp(57): warning C4101: 'k' : unreferenced local variable
+     1>..\..\src\nnet_upmix_api.cpp(110): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\src\nnet_upmix_api.cpp(111): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\src\nnet_upmix_api.cpp(112): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\src\nnet_upmix_api.cpp(113): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\src\nnet_upmix_api.cpp(85): warning C4101: 'i' : unreferenced local variable
          nnet_upmix_feedforward_fixed.cpp
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(59): warning C4101: 'i' : unreferenced local variable
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(59): warning C4101: 'k' : unreferenced local variable
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(132): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(168): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(190): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(211): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(232): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(66): warning C4101: 'i' : unreferenced local variable
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(114): warning C4101: 'a_C_out_int' : unreferenced local variable
+     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(66): warning C4101: 'k' : unreferenced local variable
          nnet_upmix_test.cpp
          oper_32b.cpp
          qua_lspe.cpp
@@ -106,13 +115,19 @@
          x64\Release\kiss_fftnd.obj
          x64\Release\kiss_fftndr.obj
          x64\Release\kiss_fftr.obj
+         x64\Release\fix16.obj
+         x64\Release\fix16_exp.obj
+         x64\Release\fix16_sqrt.obj
+         x64\Release\fix16_str.obj
+         x64\Release\fix16_trig.obj
+         x64\Release\fract32.obj
+         x64\Release\uint32.obj
          x64\Release\basic_op.obj
          x64\Release\lpccp.obj
          x64\Release\lpcfunc.obj
          x64\Release\lspgetqe.obj
          x64\Release\nnet_upmix.obj
          x64\Release\nnet_upmix_api.obj
-         x64\Release\nnet_upmix_feedforward.obj
          x64\Release\nnet_upmix_feedforward_fixed.obj
          x64\Release\nnet_upmix_test.obj
          x64\Release\oper_32b.obj
@@ -127,4 +142,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.30
+Time Elapsed 00:00:05.36

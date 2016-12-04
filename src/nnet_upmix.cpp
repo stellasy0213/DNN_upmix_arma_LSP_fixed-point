@@ -264,10 +264,10 @@ int NNET_UPMIX_Execution(	short* input,
 		//Buffer shift (2개 모아 1회 처리, 50% overlap)
 		memmove(NNET_UPMIX_frm_stck_i + ch_fft_idx,
 			NNET_UPMIX_frm_stck_i + NNET_UPMIX_FRM_LEN + ch_fft_idx,
-			NNET_UPMIX_FRM_LEN *(NNET_UPMIX_STACK_LEN - 1) * sizeof(float));
+			NNET_UPMIX_FRM_LEN *(NNET_UPMIX_STACK_LEN - 1) * sizeof(int));
 		memcpy(NNET_UPMIX_frm_stck_i + NNET_UPMIX_FRM_LEN*(NNET_UPMIX_STACK_LEN - 1) + ch_fft_idx,
 			NNET_UPMIX_I_reorder + ch_idx,
-			NNET_UPMIX_FRM_LEN * sizeof(float));
+			NNET_UPMIX_FRM_LEN * sizeof(int));
 
 
 		//------Windowing------
@@ -347,8 +347,8 @@ int NNET_UPMIX_Execution(	short* input,
 #if FIXED == 1
 		for (int z = 0; z < NNET_UPMIX_LPCOEFF; z++)
 		{
-			f_LSF[z] = (float)lsf_new[z] / (float)PI; //normalize DNN input to have 0~1
-			lsf_new_i[z] = (int)f_LSF[z];
+			//f_LSF[z] = (float)lsf_new[z] / (float)PI; //normalize DNN input to have 0~1
+			lsf_new_i[z] = (int)lsf_new[z];
 		}
 
 		//Set Splice frames

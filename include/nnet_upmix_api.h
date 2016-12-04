@@ -7,7 +7,9 @@
 #include <armadillo>
 #include <stdio.h>
 #include <math.h>
+#include <fixmath.h>
 #include "kiss_fftr.h"
+
 //#include "nnet_upmix_kaldi_trunk.h"
 
 using namespace std;

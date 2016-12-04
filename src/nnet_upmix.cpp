@@ -34,7 +34,7 @@
 
 
 //====function definition
-void LP_env_log(short * A, float * env);
+void LP_env_log(short * A, int * env);
 
 //======global buffers
 extern short * NNET_UPMIX_frm_cnt;
@@ -44,19 +44,19 @@ extern int *NNET_UPMIX_I_reorder;
 extern kiss_fft_scalar  * NNET_UPMIX_FFT_time_i;
 extern kiss_fft_cpx  * NNET_UPMIX_FFT_freq_i;
 extern kiss_fft_scalar  * NNET_UPMIX_FFT_time_o;
-extern float * NNET_UPMIX_f_LSF_buff;
-extern float * NNET_UPMIX_f_LSF_dec_buff;
+//extern float * NNET_UPMIX_f_LSF_buff;
+//extern float * NNET_UPMIX_f_LSF_dec_buff;
 
 extern int * NNET_UPMIX_i_LSF_buff;
 extern int * NNET_UPMIX_i_LSF_dec_buff;
 
-extern double * NNET_UPMIX_FFT_mag_i;
-extern double * NNET_UPMIX_FFT_angl_i;
-extern float * f_LSF;
-extern float * f_LSF_dec;
+extern int * NNET_UPMIX_FFT_mag_i;
+extern int * NNET_UPMIX_FFT_angl_i;
+//extern float * f_LSF;
+//extern float * f_LSF_dec;
 extern int * i_LSF_dec;
 extern short NNET_UPMIX_frm_idx;
-extern double init_scale;
+extern int init_scale;
 //extern Nnet NNET_UPMIX_nnet_transf;
 //extern Nnet NNET_UPMIX_nnet;
 
@@ -134,7 +134,6 @@ static short freq_prev[MA_NP][M];    /* Q13:previous LSP vector       */
 static short lag_buf[5] = { 20, 20, 20, 20, 20 };
 static short pgain_buf[5] = { 11469, 11469, 11469, 11469, 11469 };
 
-/* Lsp (Line spectral pairs) */
 
 
 /*****************************************************************
@@ -229,11 +228,10 @@ int NNET_UPMIX_Execution(	short* input,
 	short *p_O_reorder = output;
 	int fixed_out_sample;
 	short NNET_UPMIX_FFT_time_i_Q0[NNET_UPMIX_FFT_LEN];
-	float LP_Mag_dec[NNET_UPMIX_FFT21_LEN];
-
+	int LP_Mag_dec[NNET_UPMIX_FFT21_LEN];
 
 	//Internal buffer
-	double NNET_UPMIX_FFT_mag_out_i[NNET_UPMIX_FFT21_LEN];
+	int NNET_UPMIX_FFT_mag_out_i[NNET_UPMIX_FFT21_LEN];
 	
 	
 
@@ -287,14 +285,15 @@ int NNET_UPMIX_Execution(	short* input,
 		//=======Conduct frame-wise spectral processing here=============
 
 		//reform abs and angle of complex spetrum
-		double d_re, d_im;
+		int d_re, d_im;
 		for (k = 0; k < NNET_UPMIX_FFT21_LEN; ++k)
 		{
-			d_re = (double)(NNET_UPMIX_FFT_freq_i[k].r >> Q_FFT); //FFT Fraction: Q5
-			d_im = (double)(NNET_UPMIX_FFT_freq_i[k].i >> Q_FFT);
-			*(NNET_UPMIX_FFT_mag_i + k) = sqrt(pow(d_re, 2) + pow(d_im, 2)); //abs
-			*(NNET_UPMIX_FFT_angl_i + k) = atan2(d_im, d_re);	//angle
+			d_re = fix16_mul(NNET_UPMIX_FFT_freq_i[k].r >> Q_SCALE, NNET_UPMIX_FFT_freq_i[k].r >> Q_SCALE); //FFT Fraction: Q16.16
+			d_im = fix16_mul(NNET_UPMIX_FFT_freq_i[k].i >> Q_SCALE, NNET_UPMIX_FFT_freq_i[k].i >> Q_SCALE);
+			*(NNET_UPMIX_FFT_mag_i + k) = fix16_sqrt(fix16_add(d_re, d_im)); //abs
+			*(NNET_UPMIX_FFT_angl_i + k) = fix16_atan2(NNET_UPMIX_FFT_freq_i[k].i >> Q_SCALE, NNET_UPMIX_FFT_freq_i[k].r >> Q_SCALE);	//angle
 		}
+		
 
 		//==================================================================================================
 		//==============Begin Frame-wise Upmixing===========================================================
@@ -303,16 +302,6 @@ int NNET_UPMIX_Execution(	short* input,
 		//1) Extract Input features (.ark)
 		//-----begin LPC---------
 		/* LP analysis */
-
-		/*
-		Autocorrcp(NNET_UPMIX_FFT_time_i_Q0, NP, r_h_fwd, r_l_fwd, &exp_R0);                   // Autocorrelations //
-		Lag_window(NP, r_h_fwd, r_l_fwd);                           // Lag windowing    //
-		Levinsoncp(M, r_h_fwd, r_l_fwd, &A_t_fwd[MP1], rc_fwd, old_A_fwd, old_rc_fwd, &temp); // Levinson Durbin  //
-		//  input: autocorr coeff. / output: LPC coeff.(a[0] = 1)/ output: reflection coeff.  //
-		Az_lsp(A_t_fwd, lsp_new, lsp_old);          // From A(z) to lsp //
-		Lsp_lsf2(lsp_new, lsf_new, M); // Output: Q13
-		*/
-
 		
 		Autocorrcp(NNET_UPMIX_FFT_time_i_Q0, NP, r_h_fwd, r_l_fwd, &exp_R0);                   // Autocorrelations //
 		Lag_window(NP, r_h_fwd, r_l_fwd);                           // Lag windowing    //
@@ -332,22 +321,10 @@ int NNET_UPMIX_Execution(	short* input,
 		printf("------LSF_in-----\n");
 #endif
 
-		/*
-		// fwrite lsp_new
-		FILE *buf;
-		int count = 0, arr1[2000] = { 0 };
-
-		fopen_s(&buf, "RESULT_LSP.txt", "ab");
-
-		for (int z = 0; z < NNET_UPMIX_LPCOEFF; z++)
-		fprintf(buf, "%lf", lsp_new[z]);
-		fprintf(buf, "\n");
-		*/
 
 #if FIXED == 1
 		for (int z = 0; z < NNET_UPMIX_LPCOEFF; z++)
 		{
-			//f_LSF[z] = (float)lsf_new[z] / (float)PI; //normalize DNN input to have 0~1
 			lsf_new_i[z] = (int)lsf_new[z];
 		}
 
@@ -370,11 +347,18 @@ int NNET_UPMIX_Execution(	short* input,
 
 		nnet_upmix_feedforward_fixed(p_i_LSF_buff, p_i_LSF_dec);
 
-
+		
+		for (int z = 0; z < NNET_UPMIX_LPCOEFF; z++)
+		{
+			lsf_out_new[z] = (p_i_LSF_dec[z] * PI_Q16) >> Q16; //Denormalization, (Q13)
+		}
+		
+		/*
 		for (int z = 0; z < NNET_UPMIX_LPCOEFF; z++)
 		{
 			lsf_out_new[z] =(int)((float)p_i_LSF_dec[z] *PI); //Denormalization, (Q13)
 		}
+		*/
 
 
 #else
@@ -449,7 +433,8 @@ int NNET_UPMIX_Execution(	short* input,
 #endif
 
 		//Get LP envelope from A_out_t
-		LP_env_log(A_t_fwd, LP_Mag_dec);
+		LP_env_log(A_t_fwd, LP_Mag_dec); //{Q.12, Q.16}
+		//printf("%d\n", LP_Mag_dec[100]);
 
 #if UPMIX_DEBUG == 1
 		for (int z = 0; z < NNET_UPMIX_FFT21_LEN; z++)
@@ -463,34 +448,41 @@ int NNET_UPMIX_Execution(	short* input,
 		Copy(lsp_out_new, lsp_out_old, M);
 		Copy(lsp_new, lsp_old, M);
 
+
 		//delta feature de-normalization
+		int log_val;
 		for (k = 0; k < NNET_UPMIX_FEAT_LEN; ++k)
-		{				
-			NNET_UPMIX_FFT_mag_out_i[k] = exp((double)*(LP_Mag_dec + k) + EPSILON * log(*(NNET_UPMIX_FFT_mag_i + k)));
+		{
+			log_val = fix16_log(*(NNET_UPMIX_FFT_mag_i + k));
+			NNET_UPMIX_FFT_mag_out_i[k] = fix16_exp(fix16_add(*(LP_Mag_dec + k), (log_val >> 1)));
+			NNET_UPMIX_FFT_mag_out_i[k] >>= 2;
 		}
- 
+		
+
 		//Power normalization of out_mag by matching with in_mag
-		double pow_buff_in = 0.0, pow_buff_out = 0.0;
+		int pow_buff_in = 0, pow_buff_out = 0;
 		if (NNET_UPMIX_frm_idx < FRM_IDX_INIT)
 		{
 			for (k = 0; k < NNET_UPMIX_FEAT_LEN; ++k)
 			{
-				pow_buff_in += pow(*(NNET_UPMIX_FFT_mag_i + k), 2.0);
-				pow_buff_out += pow(*(NNET_UPMIX_FFT_mag_out_i + k), 2.0);
+				pow_buff_in = fix16_add(pow_buff_in, fix16_mul(*(NNET_UPMIX_FFT_mag_i + k), *(NNET_UPMIX_FFT_mag_i + k)));
+				pow_buff_out = fix16_add(pow_buff_out, fix16_mul(*(NNET_UPMIX_FFT_mag_out_i + k), *(NNET_UPMIX_FFT_mag_out_i + k)));
 			}
-			init_scale += sqrt(pow_buff_in / pow_buff_out);
-			init_scale /= 2;
+			init_scale = fix16_add(init_scale, fix16_sqrt(fix16_div(pow_buff_in, pow_buff_out)));
+			init_scale >>= 1;
 		}
+
+		//init_scale = 4096;
 		for (k = 0; k < NNET_UPMIX_FEAT_LEN; ++k)
 		{
-			NNET_UPMIX_FFT_mag_out_i[k] *= init_scale;
+			NNET_UPMIX_FFT_mag_out_i[k] = fix16_mul(NNET_UPMIX_FFT_mag_out_i[k], init_scale);
 		}
 
 		// Spectral mixing between Out_Mag and In_Mag
 		for (k = 0; k < NNET_UPMIX_FEAT_LEN; ++k)
 		{
-			NNET_UPMIX_FFT_mag_out_i[k] = ETA * NNET_UPMIX_FFT_mag_out_i[k] + (1 - ETA) * NNET_UPMIX_FFT_mag_i[k];
-			NNET_UPMIX_FFT_mag_out_i[k] *= (1 - ETA);
+			NNET_UPMIX_FFT_mag_out_i[k] = fix16_add(ETA * NNET_UPMIX_FFT_mag_out_i[k]>>5, (32 - ETA) * NNET_UPMIX_FFT_mag_i[k]>>5);
+			NNET_UPMIX_FFT_mag_out_i[k] = (32 - ETA) * NNET_UPMIX_FFT_mag_out_i[k]>>5;
 		}
 //==================================================================================================
 //==================================================================================================
@@ -498,12 +490,8 @@ int NNET_UPMIX_Execution(	short* input,
 		//reform abs and angle of complex spetrum
 		for (k = 0; k < NNET_UPMIX_FFT21_LEN; ++k)
 		{
-			NNET_UPMIX_FFT_freq_i[k].r = (int)(NNET_UPMIX_FFT_mag_out_i[k] * cos(NNET_UPMIX_FFT_angl_i[k]) * 32.0);
-			//NNET_UPMIX_FFT_freq_i[k].r = (NNET_UPMIX_FFT_mag_out_i[k] * cos(NNET_UPMIX_FFT_angl_i[k])) >> 5;
-			//NNET_UPMIX_FFT_freq_i[k].r = (int)NNET_UPMIX_FFT_freq_i[k].r;
-			NNET_UPMIX_FFT_freq_i[k].i = (int)(NNET_UPMIX_FFT_mag_out_i[k] * sin(NNET_UPMIX_FFT_angl_i[k]) * 32.0);
-			//NNET_UPMIX_FFT_freq_i[k].i = (NNET_UPMIX_FFT_mag_out_i[k] * sin(NNET_UPMIX_FFT_angl_i[k]));
-			//NNET_UPMIX_FFT_freq_i[k].i = (int)NNET_UPMIX_FFT_freq_i[k].i >> 5;
+			NNET_UPMIX_FFT_freq_i[k].r = fix16_mul(NNET_UPMIX_FFT_mag_out_i[k], fix16_cos(NNET_UPMIX_FFT_angl_i[k])) << Q_SCALE; //Q.5
+			NNET_UPMIX_FFT_freq_i[k].i = fix16_mul(NNET_UPMIX_FFT_mag_out_i[k], fix16_sin(NNET_UPMIX_FFT_angl_i[k])) << Q_SCALE;
 		}
 
 
@@ -549,25 +537,22 @@ int NNET_UPMIX_Execution(	short* input,
 
 }
 
-
-void LP_env_log(short * A, float * env)
+void LP_env_log(short * A, int * env) //{input: Q20.12, output: Q16.16}
 {
 	//Freqz
-
 	kiss_fft_scalar  A_in[NNET_UPMIX_FFT_LEN] = { 0, };
 	kiss_fft_cpx  freq_A[NNET_UPMIX_FFT21_LEN];
 	int i, k;
 	int A_int;
-	double d_re, d_im, d_pow;
-
+	int d_re, d_im, d_pow;
+	int env_tmp;
 
 	//Convert float(double) to int32_t(float)
-	for (i = 0; i < MP1 ; i++)
+	for (i = 0; i < MP1; i++)
 	{
 		//A_in[i] = (kiss_fft_scalar)(((int)A[i]) >> 1);
 		A_int = A[i];
 		A_in[i] = (kiss_fft_scalar)(A_int << 3);
-		
 	}
 
 	//FFT
@@ -575,21 +560,22 @@ void LP_env_log(short * A, float * env)
 
 	kiss_fftr(cfg, A_in, freq_A);
 
-	
+
 	//reform abs and angle of complex spetrum
 	for (k = 0; k < NNET_UPMIX_FFT21_LEN; ++k)
 	{
 		//get 1/freq_A[k] (Complex number inverse)
-		d_re = (double)freq_A[k].r / 32.0; //FFT Fraction: Q5
-		d_im = (double)freq_A[k].i / 32.0;
-		d_pow = pow(d_re, 2) + pow(d_im, 2) + FLR; //abs
+		d_re = freq_A[k].r;
+		d_im = freq_A[k].i;
+		d_pow = fix16_add(fix16_mul(d_re, d_re), fix16_mul(d_im, d_im)) + FLR; //abs
+		//printf("%d\n", d_pow);
 
-		d_re /= d_pow;
-		d_im /= d_pow;
-		d_im *= -1;
+		d_re = fix16_div(d_re, d_pow);
+		d_im = fix16_div(d_im, d_pow);
+
 
 		//Get envelope of d_im
-		env[k] = log(sqrt(pow(d_re, 2) + pow(d_im, 2))); //abs & log
+		env_tmp = fix16_log(fix16_sqrt(fix16_add(fix16_mul(d_re, d_re), fix16_mul(d_im, d_im)))); //abs & log
+		*(env + k) = env_tmp * (-1);
 	}
-
 }

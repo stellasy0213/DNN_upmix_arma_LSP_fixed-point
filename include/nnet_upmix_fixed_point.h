@@ -21,7 +21,10 @@
 
 //macros
 #define Q_FFT 5
+#define Q_SCALE 3
+#define Q_SCALE2 0
 #define Q10 10
+#define Q16 16
 #define Q15 15
 #define	Q20	20
 #define Q22	22

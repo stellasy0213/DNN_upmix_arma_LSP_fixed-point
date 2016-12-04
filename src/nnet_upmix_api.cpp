@@ -38,14 +38,15 @@ float * NNET_UPMIX_f_LSF_dec_buff; // [ch * 10 * splice21]
 int * NNET_UPMIX_i_LSF_buff; // [ch * 10 * splice21]     //[Comment]: 입력 피쳐 블록 (Splice) 생성을 위한 버퍼 
 int * NNET_UPMIX_i_LSF_dec_buff; // [ch * 10 * splice21]
 
-double * NNET_UPMIX_FFT_mag_i; //[NNET_UPMIX_FFT21_LEN]
-double * NNET_UPMIX_FFT_angl_i; //[NNET_UPMIX_FFT21_LEN]
+int * NNET_UPMIX_FFT_mag_i; //[NNET_UPMIX_FFT21_LEN]
+int * NNET_UPMIX_FFT_angl_i; //[NNET_UPMIX_FFT21_LEN]
 float * f_LSF; //[NNET_UPMIX_FEAT_LEN]
 float * f_LSF_dec; //[NNET_UPMIX_FEAT_LEN]
 int * i_LSF_dec; //[NNET_UPMIX_FEAT_LEN]
 
+
 short NNET_UPMIX_frm_idx = 0;
-double init_scale = 0.0;
+int init_scale = 0;
 
 //Nnet NNET_UPMIX_nnet_transf; //[Comment]: Nnet을 초기에 1회만 load 하도록 전역변수화 (기존에는 Decode 전에 불러와서 framw-wise에 적용 시 계산량 소모가 컸음)
 //Nnet NNET_UPMIX_nnet;
@@ -94,8 +95,8 @@ void NNET_UPMIX_Init(int * sRAMNMF)
 	NNET_UPMIX_FFT_freq_i = (kiss_fft_cpx *)((kiss_fft_scalar *)&NNET_UPMIX_FFT_time_o[NNET_UPMIX_FFT_LEN*NNET_UPMIX_MAX_CHANNEL]);
 	NNET_UPMIX_f_LSF_buff = (float *)((kiss_fft_cpx *)&NNET_UPMIX_FFT_freq_i[NNET_UPMIX_FFT_LEN*NNET_UPMIX_MAX_CHANNEL]);
 	NNET_UPMIX_f_LSF_dec_buff = (float *)&NNET_UPMIX_f_LSF_buff[NNET_UPMIX_LPCOEFF*NNET_UPMIX_MAX_CHANNEL * SPLICE21];
-	NNET_UPMIX_FFT_mag_i = (double *)((float *)&NNET_UPMIX_f_LSF_dec_buff[NNET_UPMIX_LPCOEFF*NNET_UPMIX_MAX_CHANNEL * SPLICE21]);
-	NNET_UPMIX_FFT_angl_i = (double *)&NNET_UPMIX_FFT_mag_i[NNET_UPMIX_FFT21_LEN];
+	NNET_UPMIX_FFT_mag_i = (int *)((float *)&NNET_UPMIX_f_LSF_dec_buff[NNET_UPMIX_LPCOEFF*NNET_UPMIX_MAX_CHANNEL * SPLICE21]);
+	NNET_UPMIX_FFT_angl_i = (int *)&NNET_UPMIX_FFT_mag_i[NNET_UPMIX_FFT21_LEN];
 	f_LSF = (float *)((double *)&NNET_UPMIX_FFT_angl_i[NNET_UPMIX_FFT21_LEN]);
 	f_LSF_dec = (float *)&f_LSF[NNET_UPMIX_LPCOEFF];
 

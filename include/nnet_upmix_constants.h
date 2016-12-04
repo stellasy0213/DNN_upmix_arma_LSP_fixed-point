@@ -35,9 +35,9 @@
 //=============Feature Extraction
 #define NNET_UPMIX_FEAT_LEN NNET_UPMIX_FFT21_LEN //feature length
 #define MAX_VALUE 17.3286 //log(abs(32767*NNET_UPMIX_FFT_LEN));
-#define FLR 0.000001 //flooring value
-#define EPSILON 0.5 //Delta coeffcient
-#define ETA 0.4 //Output Mixing coefficient (control blurrness)
+#define FLR 1 //flooring value (Q16.16)
+#define EPSILON 2 //Delta coeffcient (0.5 @ Q2)
+#define ETA 13//13 //Output Mixing coefficient (control blurrness) (0.406 @ Q5)
 
 //=============NNET Decoder
 //#define MODEL_PATH "nnet/nnet_5.dbn_dnn_iter100_learnrate0.003_tr0.00_cv0.00_splice0_e05" //Epsilon 0.5

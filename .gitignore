@@ -1,0 +1,7 @@
+*.wav
+sln2013/DNN_upmix_arma_LSP_fixed-point/DNN_upmix_arma_LSP_fixed-point.sdf
+*.user
+*.obj
+*.exe
+sln2013/DNN_upmix_arma_LSP_fixed-point/x64/Release/DNN_upmix_arma_LSP_fixed-point.pdb
+*.user

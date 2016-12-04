@@ -1,113 +1,61 @@
-﻿Build started 2016-12-04 오후 8:11:16.
-     1>Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\DNN_upmix_arma_LSP_fixed-point.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 2016-12-05 오전 4:15:09.
+     1>Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\DNN_upmix_arma_LSP_fixed-point.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\libfixmath /I..\..\include /I..\..\kiss_fft /I..\..\arma_include /I..\..\arma_lib_win64 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TC /errorReport:prompt ..\..\kiss_fft\kfc.c ..\..\kiss_fft\kiss_fastfir.c ..\..\kiss_fft\kiss_fft.c ..\..\kiss_fft\kiss_fftnd.c ..\..\kiss_fft\kiss_fftndr.c ..\..\kiss_fft\kiss_fftr.c ..\..\libfixmath\fix16.c ..\..\libfixmath\fix16_exp.c ..\..\libfixmath\fix16_sqrt.c ..\..\libfixmath\fix16_str.c ..\..\libfixmath\fix16_trig.c ..\..\libfixmath\fract32.c ..\..\libfixmath\uint32.c
-         kfc.c
-         kiss_fastfir.c
-     1>..\..\kiss_fft\kiss_fastfir.c(100): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
-     1>..\..\kiss_fft\kiss_fastfir.c(103): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
-     1>..\..\kiss_fft\kiss_fastfir.c(106): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
-     1>..\..\kiss_fft\kiss_fastfir.c(145): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
-     1>..\..\kiss_fft\kiss_fastfir.c(146): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
-     1>..\..\kiss_fft\kiss_fastfir.c(159): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>..\..\kiss_fft\kiss_fastfir.c(166): warning C4244: '*=' : conversion from 'float' to 'int32_t', possible loss of data
-     1>..\..\kiss_fft\kiss_fastfir.c(167): warning C4244: '*=' : conversion from 'float' to 'int32_t', possible loss of data
-         kiss_fft.c
-     1>..\..\kiss_fft\kiss_fft.c(226): warning C4267: '+=' : conversion from 'size_t' to 'int', possible loss of data
-     1>..\..\kiss_fft\kiss_fft.c(362): warning C4244: '=' : conversion from 'double' to 'int32_t', possible loss of data
-         kiss_fftnd.c
-         kiss_fftndr.c
-         kiss_fftr.c
-     1>..\..\kiss_fft\kiss_fftr.c(62): warning C4244: '=' : conversion from 'double' to 'int32_t', possible loss of data
-         fix16.c
-     1>..\..\libfixmath\fix16.c(100): warning C4244: 'initializing' : conversion from 'int64_t' to 'fix16_t', possible loss of data
-         fix16_exp.c
-         fix16_sqrt.c
-         fix16_str.c
-         fix16_trig.c
-         fract32.c
-         uint32.c
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\libfixmath /I..\..\include /I..\..\kiss_fft /I..\..\arma_include /I..\..\arma_lib_win64 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ..\..\src\basic_op.cpp ..\..\src\lpccp.cpp ..\..\src\lpcfunc.cpp ..\..\src\lspgetqe.cpp ..\..\src\nnet_upmix.cpp ..\..\src\nnet_upmix_api.cpp ..\..\src\nnet_upmix_feedforward_fixed.cpp ..\..\src\nnet_upmix_test.cpp ..\..\src\oper_32b.cpp ..\..\src\qua_lspe.cpp ..\..\src\tabld8cp.cpp ..\..\src\tab_ld8k.cpp ..\..\src\utilcp.cpp
-         basic_op.cpp
-         lpccp.cpp
-         lpcfunc.cpp
-         lspgetqe.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\libfixmath /I..\..\include /I..\..\kiss_fft /I..\..\arma_include /I..\..\arma_lib_win64 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D ARMA_USE_LAPACK /D ARMA_USE_BLAS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ..\..\src\nnet_upmix.cpp
          nnet_upmix.cpp
-     1>..\..\src\nnet_upmix.cpp(221): warning C4101: 'avg_lag' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(167): warning C4101: 'r_bwd' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(203): warning C4101: 'res2' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(187): warning C4101: 'lsf_out_int' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(179): warning C4101: 'Ap2' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(209): warning C4101: 'i_subfr' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(201): warning C4101: 'y2' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(168): warning C4101: 'r_l_bwd' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(213): warning C4101: 'sat_filter' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(198): warning C4101: 'xn2' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(197): warning C4101: 'xn' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(212): warning C4101: 'pit_sharp' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(196): warning C4101: 'h1' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(180): warning C4101: 'lsp_new_q' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(220): warning C4101: 'Vad' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(211): warning C4101: 'index' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(200): warning C4101: 'y1' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(199): warning C4101: 'code' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(223): warning C4101: 'Energy_db' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(218): warning C4101: 'rh_nbe' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(214): warning C4101: 'L_temp' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(181): warning C4101: 'lsf_int' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(177): warning C4101: 'pAp' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(221): warning C4101: 'tmp2' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(211): warning C4101: 'gain_code' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(178): warning C4101: 'Ap1' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(171): warning C4101: 'rc_bwd' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'T0_min' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(191): warning C4101: 'm_ap' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(175): warning C4101: 'Aq' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(212): warning C4101: 'taming' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'T0_max' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(204): warning C4101: 'g_coeff_cs' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(221): warning C4101: 'tmp1' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'T0' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(192): warning C4101: 'code_lsp' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(177): warning C4101: 'pAq' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(173): warning C4101: 'A_t_fwd_q' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(169): warning C4101: 'r_h_bwd' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(211): warning C4101: 'gain_pit' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'T0_frac' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'T_op' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(205): warning C4101: 'exp_g_coeff_cs' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(191): warning C4101: 'm_aq' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(186): warning C4101: 'lsp_out_new_q' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(174): warning C4101: 'A_t_bwd' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(215): warning C4101: 'freq_cur' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(190): warning C4101: 'lp_mode' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(176): warning C4101: 'Ap' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(219): warning C4101: 'lsfq_mem' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(209): warning C4101: 'j' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(202): warning C4101: 'g_coeff' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(191): warning C4101: 'i_gamma' : unreferenced local variable
-     1>..\..\src\nnet_upmix.cpp(592): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         nnet_upmix_api.cpp
-     1>..\..\src\nnet_upmix_api.cpp(110): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(111): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(112): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(113): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>..\..\src\nnet_upmix_api.cpp(85): warning C4101: 'i' : unreferenced local variable
-         nnet_upmix_feedforward_fixed.cpp
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(132): warning C4018: '<' : signed/unsigned mismatch
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(168): warning C4018: '<' : signed/unsigned mismatch
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(190): warning C4018: '<' : signed/unsigned mismatch
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(211): warning C4018: '<' : signed/unsigned mismatch
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(232): warning C4018: '<' : signed/unsigned mismatch
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(66): warning C4101: 'i' : unreferenced local variable
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(114): warning C4101: 'a_C_out_int' : unreferenced local variable
-     1>..\..\src\nnet_upmix_feedforward_fixed.cpp(66): warning C4101: 'k' : unreferenced local variable
-         nnet_upmix_test.cpp
-         oper_32b.cpp
-         qua_lspe.cpp
-         tabld8cp.cpp
-         tab_ld8k.cpp
-         utilcp.cpp
+     1>..\..\src\nnet_upmix.cpp(220): warning C4101: 'avg_lag' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(166): warning C4101: 'r_bwd' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(202): warning C4101: 'res2' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(186): warning C4101: 'lsf_out_int' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(178): warning C4101: 'Ap2' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(208): warning C4101: 'i_subfr' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(200): warning C4101: 'y2' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(167): warning C4101: 'r_l_bwd' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(212): warning C4101: 'sat_filter' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(197): warning C4101: 'xn2' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(196): warning C4101: 'xn' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(211): warning C4101: 'pit_sharp' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(195): warning C4101: 'h1' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(179): warning C4101: 'lsp_new_q' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(219): warning C4101: 'Vad' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'index' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(199): warning C4101: 'y1' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(198): warning C4101: 'code' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(222): warning C4101: 'Energy_db' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(217): warning C4101: 'rh_nbe' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(213): warning C4101: 'L_temp' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(180): warning C4101: 'lsf_int' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(176): warning C4101: 'pAp' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(220): warning C4101: 'tmp2' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'gain_code' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(177): warning C4101: 'Ap1' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(170): warning C4101: 'rc_bwd' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(209): warning C4101: 'T0_min' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(190): warning C4101: 'm_ap' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(174): warning C4101: 'Aq' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(211): warning C4101: 'taming' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(209): warning C4101: 'T0_max' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(203): warning C4101: 'g_coeff_cs' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(220): warning C4101: 'tmp1' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(209): warning C4101: 'T0' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(191): warning C4101: 'code_lsp' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(176): warning C4101: 'pAq' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(172): warning C4101: 'A_t_fwd_q' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(168): warning C4101: 'r_h_bwd' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(210): warning C4101: 'gain_pit' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(209): warning C4101: 'T0_frac' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(209): warning C4101: 'T_op' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(204): warning C4101: 'exp_g_coeff_cs' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(190): warning C4101: 'm_aq' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(185): warning C4101: 'lsp_out_new_q' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(173): warning C4101: 'A_t_bwd' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(214): warning C4101: 'freq_cur' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(189): warning C4101: 'lp_mode' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(175): warning C4101: 'Ap' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(218): warning C4101: 'lsfq_mem' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(208): warning C4101: 'j' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(201): warning C4101: 'g_coeff' : unreferenced local variable
+     1>..\..\src\nnet_upmix.cpp(190): warning C4101: 'i_gamma' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\x64\Release\DNN_upmix_arma_LSP_fixed-point.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\arma_lib_win64 lapack_win64_MT.lib blas_win64_MT.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\x64\Release\DNN_upmix_arma_LSP_fixed-point.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\x64\Release\DNN_upmix_arma_LSP_fixed-point.lib" /MACHINE:X64 x64\Release\kfc.obj
          x64\Release\kiss_fastfir.obj
@@ -138,8 +86,8 @@
          Generating code
          Finished generating code
          DNN_upmix_arma_LSP_fixed-point.vcxproj -> I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\x64\Release\DNN_upmix_arma_LSP_fixed-point.exe
-     1>Done Building Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\DNN_upmix_arma_LSP_fixed-point.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "I:\HUCOM\224server\DNN_upmix_arma_LSP_fixed-point\sln2013\DNN_upmix_arma_LSP_fixed-point\DNN_upmix_arma_LSP_fixed-point.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.36
+Time Elapsed 00:00:02.56

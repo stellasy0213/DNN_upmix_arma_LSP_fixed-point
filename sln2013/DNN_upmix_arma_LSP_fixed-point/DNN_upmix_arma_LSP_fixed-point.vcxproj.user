@@ -5,7 +5,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LocalDebuggerCommandArguments>Title1_Chapter_06_Test_(L).wav Title1_Chapter_06_Test_(RL)_DNN.wav</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>Title1_Chapter_06_Test_(L).wav Title1_Chapter_06_Test_(RL)_DNN_fullfixed.wav</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -13,7 +13,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LocalDebuggerCommandArguments>Title1_Chapter_06_Test_(L).wav Title1_Chapter_06_Test_(RL)_DNN.wav</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>Title1_Chapter_06_Test_(L).wav Title1_Chapter_06_Test_(RL)_DNN_fullfixed.wav</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
